@@ -9,6 +9,7 @@ class Calculator(CTk):
         super().__init__()
         self.title("Simple Calculator")
         self.resizable(False, False)
+        self._set_appearance_mode("dark")
         self.config(background=allColors["mountbatten"])
         self.iconbitmap(os.path.join(os.getcwd(), 'assets', 'icon.ico'))
         

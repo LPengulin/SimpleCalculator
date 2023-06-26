@@ -20,7 +20,7 @@ class Calculator(CTk):
         self.entry_text.trace("w", self.isString)
 
         #creating the buttons
-        self.createButtons(9)
+        self.createButtons()
 
         self.buttonAdd = CTkButton(self, text="+", corner_radius=5, width=170, height=40, bg_color=allColors["mountbatten"], fg_color=allColors["dogwood"], text_color=allColors["black"], hover_color=allColors["darkDogwood"], command=self.add_button)
         self.buttonMinus = CTkButton(self, text="-", corner_radius=5, width=80, height=40, bg_color=allColors["mountbatten"], fg_color=allColors["dogwood"], text_color=allColors["black"], hover_color=allColors["darkDogwood"], command=self.minus_button)
@@ -38,8 +38,14 @@ class Calculator(CTk):
         self.operators = []
 
     
-    def createButtons(self, numButtons):
-        self.buttons = [CTkButton(self, text=i, corner_radius=5, bg_color=allColors["mountbatten"], fg_color=allColors["lavender"], text_color=allColors["black"], hover_color=allColors["darkLavender"], width=80, height=40, command=lambda i=i: self.num_buttons(i)) for i in range(numButtons, -1, -1)]
+    def createButtons(self):
+        self.buttons = []
+        for i in range(3, 0, -1):
+            for j in range(1, 4):
+                num = i * 3 - 3 + j
+                self.buttons.append(CTkButton(self, text=num, corner_radius=5, bg_color=allColors["mountbatten"], fg_color=allColors["lavender"], text_color=allColors["black"], hover_color=allColors["darkLavender"], width=80, height=40, command=lambda num=num: self.num_buttons(num)))
+        self.buttons.append(CTkButton(self, text=0, corner_radius=5, bg_color=allColors["mountbatten"], fg_color=allColors["lavender"], text_color=allColors["black"], hover_color=allColors["darkLavender"], width=80, height=40, command=lambda: self.num_buttons(0)))
+
 
 
     def isString(self, *args):

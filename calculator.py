@@ -145,5 +145,20 @@ class Calculator(CTk):
         self.buttonEquals.grid(row=row+2, column=1, columnspan=2, padx=5, pady=5)
         
 
+    def createView2(self): 
+
+        #create view 
+
+        #this is a test view
+        # 
+        # for debugging purposes
+        pass
+
+        
+        
+
+
+    
+
         
 
